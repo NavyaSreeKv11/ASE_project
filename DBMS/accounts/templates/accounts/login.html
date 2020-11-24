@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+     <style>
+    body{
+    background-image: url('{% static "img/a1.jpg" %}');
+    color: black;
+    }
+    .login{
+        background-color: ghostwhite;
+    }
+    .form-submit {
+  width: 100%;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  padding: 17px 20px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  border: none;
+
+  background-image: -ms-linear-gradient(to left, #74ebd5, #9face6);
+  background-image: -o-linear-gradient(to left, #74ebd5, #9face6);
+  background-image: -webkit-linear-gradient(to left, #74ebd5, #9face6);
+  background-image: linear-gradient(to left, #74ebd5, #9face6); }
+    </style>
+        <div class="main container">
+
+
+<div class="col-7 mx-auto">
+ <div class=" container">
+{##}
+{#        <input type="hidden" name="next" value="{{ next }}">#}
+{#        {{ form }}#}
+{#        <button type="submit" class="btn btn-success">Sign up</button>#}
+{#      </form>#}
+
+
+        <div class="card login">
+
+  <h5 class="card-header  black-text text-center py-4" style="background: black;font-family:'Lucida Handwriting';font-size: 35px">
+    <strong style="color: white;">Log In</strong>
+  </h5>
+
+  <!--Card content-->
+  <div class="card-body px-lg-5 pt-0">
+
+    <!-- Form -->
+    <form class="text-center" style="color: #757575;" action="" method="POST" novalidate> {% csrf_token %}
+
+
+    {% crispy form %}
+    </form>
+
+    <!-- Form -->
+    <a href="{% url 'password_reset' %}"> reset</a>
+
+  </div>
+
+</div>
+
+    </div>
+</div>
+    </div>
+{% endblock %}

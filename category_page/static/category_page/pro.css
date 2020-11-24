@@ -1,0 +1,267 @@
+
+* {
+    box-sizing: border-box;
+}
+
+h1{
+   text-align: left;
+   color: white;
+   font-family: verdana;
+   font-size: 250%;
+
+}
+
+h2{
+ text-align: left;
+ font-size: 225%;
+ color:white;
+    font-family:"comic sans MS",cursive,sans-serif;
+}
+p{
+    color:white;
+}
+
+h3{
+ text-align: center;
+ font-size: 35px;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(bg-01.JPG);
+    height:100%;
+    width:98%;
+	background-repeat:no-repeat;
+	background-position:center;
+	background-size:cover;
+}
+
+.header {
+    text-align: center;
+    padding: 32px;
+}
+
+.row {
+    display: -ms-flexbox; /* IE 10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE 10 */
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+    -ms-flex: 50%; /* IE 10 */
+    flex: 50%;
+    padding: 0 4px;
+}
+
+.column img {
+    margin-top: 8px;
+    vertical-align: middle;
+}
+
+/* Style the buttons */
+.btn {
+    border: none;
+    outline: none;
+    padding: 10px 16px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.btn:hover {
+    background-color: #ddd;
+}
+
+.btn.active {
+    background-color: #666;
+    color: white;
+}
+/*zoom*/
+body {font-family: Arial, Helvetica, sans-serif;}
+
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow:none; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color:rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    float:left;
+    width: 65%;
+    height:90%;
+
+
+}
+
+
+
+/* Add Animation */
+.modal-content, #caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 40px;
+    color:#f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.download{
+    position: absolute;
+    top: 130px;
+    right: 250px;
+
+
+ }
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: black;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+/*dropdown*/
+.dropdown{
+    position: absolute;
+    top: 34px;
+    right:220px;
+	float:right;
+ }
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: black;
+    padding: 10px;
+    font-size: 29px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+
+
+
+.like{
+    position: absolute;
+    top: 220px;
+    right: 395px;
+    color: black;
+
+ }
+ .collect{
+    position: absolute;
+    top: 220px;
+    right: 220px;
+    transition: 0.3s;
+ }
+ .follow{
+    position: absolute;
+	top: 300px;
+    right: 370px;
+    color:white;
+    font-size: 25px;
+    font-weight: bold;
+	font-family:"comic sans MS",cursive,sans-serif;
+    transition: 0.3s;
+	margin-left:40%;
+ }
+
+  .media{
+    position: absolute;
+	top:340px;
+    right: 240px;
+    transition: 0.3s;
+	text-align:center;
+ }
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
+

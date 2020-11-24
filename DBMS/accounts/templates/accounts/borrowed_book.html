@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{%load count_tags %}
+<div class="container">
+  <div class="col-sm-7" style="padding-left:30%">
+    {% for book in books %}
+        <a href="{% url 'payment:payment' book.id%}">{{ book.book_name }} <span class="badge" style="float:right;background-color:blue">{% finecal book.id%}</span></a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

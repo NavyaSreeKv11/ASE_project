@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{#{% load crispy_forms_tags %}#}
+{% block content %}
+     <style>
+    body{
+    background-image: url('{% static "img/a1.jpg" %}');
+    color: black;
+    }
+    .sign-up{
+        background-color: ghostwhite;
+    }
+
+    </style>
+<div class="container">
+<br><br><br>
+   <h1 class="card-header  black-text text-center py-4" style="font-family:'Lucida Handwriting';font-size: 35px">
+    <strong style="color: black;font-family: 'Lucida Handwriting';">Profile</strong>
+  </h1><br>
+<div class="row">
+    <div class="col-sm-4">
+        {% if request.user.image %}
+            <img src="{{ request.user.image.url }}" width="240">
+        {% endif %}
+    </div>
+    <div class="col-sm-8" style="font-family: 'Comic Sans MS';font-size: 30px;">
+        <p>Username: {{ request.user }}</p>
+        <p>First name: {{ request.user.first_name }}</p>
+        <p>Last name: {{ request.user.last_name }}</p>
+        <p>Email: {{ request.user.email }}</p>
+        <p>Phone: {{ request.user.phone_no }}</p>
+        <p>number of books issued: {{ request.user.book_issued.count }}</p>
+
+    </div>
+</div>
+</div>
+{% endblock %}
+

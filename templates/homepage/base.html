@@ -1,0 +1,160 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="shortcut icon" href="{% static 'category/images/favicon.ico' %}" />
+<link rel="stylesheet" href="{% static 'homepage/css/index.css' %}">
+    <!--Links for materialize css-->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+      <!-- font awesome -->
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title></title>
+  <!--links for fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+
+  </head>
+  <body style="font-family: 'Poppins', sans-serif;">
+
+      <div class="navbar-fixed">
+        <nav class="nav-wrapper transparent blue-grey darken-3">
+          <div class="container">
+            <a href="{%url 'index' %}" class="brand-logo" style="font-family: 'Montserrat', sans-serif;">Free Stock</a>
+            <a href="#" class="sidenav-trigger" data-target="mobile-links">
+              <i class="material-icons">menu</i>
+            </a>
+
+            <ul class="right hide-on-med-and-down valign-wrapper">
+              <li>
+                <div style="height:3vw" >
+                <form action="{% url 'searchdata' %}" method="get">
+                <div class="input-field grey lighten-4">
+                    <input id="search" name="searchword" type="search" required>
+                    <label class="label-icon valign-wrapper" for="search"><i class="material-icons indigo-text text-darken-4">search</i></label>
+                    <i class="material-icons">close</i>
+                </div>
+                </form>
+              </li>
+              {% if user.is_authenticated %}
+              <li>
+                <a href="{% url 'profile' %}" >Profile</a>
+              </li>
+              <li>
+                <a href="{% url 'logout' %}" >Logout</a>
+              </li>
+              {% else %}
+              <li>
+                <a href="{% url 'homepage:user_login' %}">Login</a>
+              </li>
+
+              <li>
+                  <a href="{% url 'homepage:register' %}">Signup</a>
+              </li>
+
+              {% endif %}
+
+
+
+              <li>
+                <a href="#about">About</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <ul class="sidenav" id="mobile-links">
+        <div class="container">
+
+          <li>
+            <form action="{% url 'searchdata' %}" method="get">
+            <div class="input-field">
+                <input id="search" type="search" name="searchword" placeholder="Search images" required>
+                <i class="material-icons">close</i>
+            </div>
+            </form>
+          </li>
+        </div>
+        {% if user.is_authenticated %}
+        <li>
+          <a href="#" >Profile</a>
+        </li>
+        <li>
+          <a href="{% url 'logout' %}" >Logout</a>
+        </li>
+        {% else %}
+        <li>
+          <a href="{% url 'homepage:user_login' %}">Login</a>
+        </li>
+        <li>
+          <a href="{% url 'homepage:register' %}">Signup</a>
+        </li>
+        {% endif %}
+
+        <li>
+          <a href="#about" >About</a>
+        </li>
+
+      </ul>
+
+
+
+
+
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+      <script>
+        $(document).ready(function(){
+          $('.sidenav').sidenav();
+          $('.scrollspy').scrollSpy();
+        });
+      </script>
+
+
+
+
+
+      <div >
+        {% block content %}
+        {% endblock %}
+      </div>
+
+              <footer class="page-footer scrollspy" id="about">
+                <div class="container ">
+                  <div class="row">
+                    <div class="col l6 s12">
+                      <h5 class="white-text">About</h5>
+                      <p class="grey-text text-lighten-4">FreeStock.com is a website where a user can download free stock photos <br>
+                        A user can also join our community by signing up and posting their photographs.This is how our site works.
+                      </p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                      <h5 class="white-text">Contact</h5>
+                      <ul>
+                        <li><a class="grey-text text-ighten-3" href="#!">Gmail</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Instagram</a></li>
+                        <li><a class="grey-text text-lighten-3" href="{% url 'homepage:user_feedback' %}">Feedback</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="footer-copyright">
+                    <div class="container">
+                    © 2018 FreeStock.Com
+                    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                    </div>
+                  </div>
+                </div>
+              </footer>
+
+  </body>
+</html>

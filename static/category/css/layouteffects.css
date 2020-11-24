@@ -1,0 +1,84 @@
+.container1 {
+position: relative;
+
+}
+
+.image1 {
+opacity: 1;
+display: block;
+height: auto;
+transition: .5s ease;
+backface-visibility: hidden;
+}
+
+.middle1 {
+transition: .5s ease;
+opacity: 0;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+-ms-transform: translate(-50%, -50%);
+text-align: center;
+}
+
+.container1:hover .image1 {
+opacity: 0.95;
+}
+
+.container1:hover .middle1 {
+opacity: 1;
+}
+
+.text1 {
+color: red;
+font-size: 35px;
+padding: 5px 32px;
+}
+
+/* search box */
+
+body {
+    font-family: Arial;
+}
+* {
+    box-sizing: border-box;
+}
+form.rounded input[type=text]{
+    border-radius:15px;
+    -moz-border-radius:15px;
+    -webkit-border-radius:15px;
+}
+form.rounded button{
+    border-radius:15px;
+    -moz-border-radius:15px;
+    -webkit-border-radius:15px;
+}
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    color:black;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+}
+form.example button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+form.example button:hover {
+    background: #0b7dda;
+}
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}

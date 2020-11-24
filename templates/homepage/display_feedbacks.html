@@ -1,0 +1,16 @@
+{% extends "homepage/base.html" %}
+{% block content %}
+<ol>
+  {% for item in feedbacks %}
+    <ul>
+      <li>Name:{{item.name}}</li>
+      <li>rating:{{item.rating}}</li>
+      <li>Review:{{item.text}}</li>
+    </ul>
+    <hr>
+  {% endfor %}
+</ol>
+
+
+{% load staticfiles %}
+{% endblock %}

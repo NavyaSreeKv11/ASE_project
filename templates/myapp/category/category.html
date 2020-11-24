@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+<title>Freestock</title>
+<link rel="shortcut icon" href="{% static 'category/images/favicon.ico' %}" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{% static 'category/css/layout.css' %}"  rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="{% static 'category/css/layouteffects.css' %}"  rel="stylesheet" type="text/css" media="all">
+
+<style>
+.text1 {
+color: white;
+font-size: 35px;
+padding: 5px 32px;
+}
+</style>
+
+
+</head>
+<body id="top">
+<div class="bgded overlay" style="background-color:#546e7a;">
+  <div class="wrapper row0">
+    <div id="topbar" class="hoc clear">
+
+      <div class="fl_right">
+        <ul class="nospace">
+          <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
+          <li><a href="#">Login</a></li>
+          <li><a href="#">Register</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper row1">
+    <header id="header" class="hoc clear">
+      <div id="logo" class="fl_left">
+        <h1><a href="#">Freestock</a></h1>
+      </div>
+
+
+       <form class="example rounded" method="get" action="{% url "searchdata" %}" style="margin-left:275px;margin-top:20px;max-width:400px">
+           {%  csrf_token %}
+         <input type="text" placeholder="Search.." name="searchword">
+         <button type="submit"><i class="fa fa-search"></i></button>
+       </form>
+
+
+
+      <nav id="mainav" class="fl_right">
+        <ul class="clear">
+          <li><a href="#">Home</a></li>
+         <li><a href="#">About</a></li>
+          <li class="active"><a class="drop" href="#">Categories</a>
+            <ul>
+              <li><a href="#">Fashion</a></li>
+              <li><a href="#">Nature</a></li>
+              <li><a href="#">Wildlife</a></li>
+              <li><a href="#">Sports</a></li>
+              <li><a href="#">+More</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+  </div>
+</div>
+<div class="wrapper row2">
+  <div id="breadcrumb" class="hoc clear">
+
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Categories</a></li>
+
+    </ul>
+  </div>
+</div>
+<div class="wrapper row3">
+  <main class="hoc container clear">
+    <div class="content">
+      <div id="gallery">
+        <figure>
+          <header class="heading">Categories</header>
+          <ul class="nospace clear">
+
+            <li class="one_quarter first container1">
+              <a href="{% url 'myapp:index' value="Animals" %}"><img src="{% static 'category/images/0001.jpg' %}" alt="" class="image1">
+                <div class="middle1">
+                   <div class="text1">Animals</div>
+                </div></a>
+            </li>
+
+            <li class="one_quarter container1">
+              <a href="{% url 'myapp:index' value="Nature" %}"><img src="{% static 'category/images/20.jpg' %}" alt="" class="image1">
+                <div class="middle1">
+                   <div class="text1">Nature</div>
+                </div></a>
+            </li>
+
+            <li class="one_quarter container1">
+              <a href="{% url 'myapp:index' value="Festivals" %}"><img src="{% static 'category/images/30.jpg' %}" alt="" class="image1">
+                <div class="middle1">
+                   <div class="text1">Festivals</div>
+                </div></a>
+            </li>
+
+            <li class="one_quarter container1">
+              <a href="{% url 'myapp:index' value="Food" %}"><img src="{% static 'category/images/40.jpg' %}" alt="" class="image1">
+                <div class="middle1">
+                   <div class="text1">Food</div>
+                </div></a>
+            </li>
+
+            <li class="one_quarter first container1">
+              <a href="{% url 'myapp:index' value="Objects" %}"><img src="{% static 'category/images/51.jpeg' %}" alt="" class="image1">
+                <div class="middle1">
+                   <div class="text1">Objects</div>
+                </div></a>
+            </li>
+
+            <li class="one_quarter container1">
+              <a href="{% url 'myapp:index' value="Abstract" %}"><img src="{% static 'category/images/60.jpg' %}" alt="" class="image1">
+                <div class="middle1">
+                   <div class="text1">Abstract</div>
+                </div></a>
+            </li>
+
+            <li class="one_quarter container1">
+              <a href="{% url 'myapp:index' value="People" %}"><img src="{% static 'category/images/70.jpg' %}" alt="" class="image1">
+                <div class="middle1">
+                   <div class="text1">People</div>
+                </div></a>
+            </li>
+
+            <li class="one_quarter container1">
+              <a href="{% url 'myapp:index' value="Architecture" %}"><img src="{% static 'category/images/80.jpg' %}" alt="" class="image1">
+                <div class="middle1">
+                   <div class="text1">Architecture</div>
+                </div></a>
+            </li>
+
+            <li class="one_quarter first container1">
+              <a href="{% url 'myapp:index' value="Fashion" %}"><img src="{% static 'category/images/90.jpg' %}" alt="" class="image1">
+                <div class="middle1">
+                   <div class="text1">Fashion</div>
+                </div></a>
+            </li>
+
+            <li class="one_quarter container1">
+              <a href="{% url 'myapp:index' value="Lifestyle" %}"><img src="{% static 'category/images/100.jpg' %}" alt="" class="image1">
+                <div class="middle1">
+                   <div class="text1">Lifestyle</div>
+                </div></a>
+            </li>
+
+            <li class="one_quarter container1">
+              <a href="{% url 'myapp:index' value="Sports" %}"><img src="{% static 'category/images/110.jpg' %}" alt="" class="image1">
+                <div class="middle1">
+                   <div class="text1">Sports</div>
+                </div></a>
+            </li>
+
+            <li class="one_quarter container1">
+              <a href="{% url 'myapp:index' value="Wedding" %}"><img src="{% static 'category/images/120.jpg' %}" alt="" class="image1">
+                <div class="middle1">
+                   <div class="text1">Wedding</div>
+                </div></a>
+            </li>
+
+
+       </ul>
+          <figcaption></figcaption>
+        </figure>
+      </div>
+
+    </div>
+
+    <div class="clear"></div>
+  </main>
+</div>
+<div class="wrapper row4 bgded overlay" style="background-color:#546e7a;">
+  <footer id="footer" class="hoc clear">
+    <div class="one_third first">
+      <h6 class="title">CONTACT</h6>
+      <ul class="faico clear">
+        <li><a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+        <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="faicon-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+      </ul>
+    </div>
+    <div class="one_third">
+      <h6 class="title"></h6>
+      <ul class="nospace linklist contact">
+              </ul>
+    </div>
+    <div class="one_third">
+      <h6 class="title">Freestock.com</h6>
+      <ul class="nospace linklist">
+        <li>
+          <article>
+            <h2 class="nospace font-x1"><a href="#">About</a></h2>
+            <p class="nospace">FreeStock.com is a website where a user can download free stock photos </p>
+          </article>
+        </li>
+      </ul>
+    </div>
+  </footer>
+</div>
+<div class="wrapper row5">
+  <div id="copyright" class="hoc clear">
+    <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">freestock.com</a></p>
+    </div>
+</div>
+<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+
+
+<script src="{% static 'category/scripts/jquery.min.js' %}"></script>
+<script src="{% static 'category/scripts/jquery.backtotop.js' %}"></script>
+<script src="{% static 'category/scripts/jquery.mobilemenu.js' %}"></script>
+</body>
+</html>

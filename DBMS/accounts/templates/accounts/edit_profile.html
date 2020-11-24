@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% url 'accounts:change_password' as password_url %}
+{% load crispy_forms_tags %}
+{% block content %}
+     <style>
+    body{
+    background-image: url('{% static "img/a1.jpg" %}');
+    color: black;
+    }
+    .sign-up{
+        background-color: ghostwhite;
+    }
+    .form-submit {
+  width: 100%;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  padding: 17px 20px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  border: none;
+
+  background-image: -ms-linear-gradient(to left, #74ebd5, #9face6);
+  background-image: -o-linear-gradient(to left, #74ebd5, #9face6);
+  background-image: -webkit-linear-gradient(to left, #74ebd5, #9face6);
+  background-image: linear-gradient(to left, #74ebd5, #9face6); }
+    </style>
+<div class=" container">
+    <div class="col-md-8 col-sm-10 col-12 mx-auto">
+
+{#      <form method="POST" novalidate>#}
+{##}
+{#        <input type="hidden" name="next" value="{{ next }}">#}
+{#        {{ form }}#}
+{#        <button type="submit" class="btn btn-success">Sign up</button>#}
+{#      </form>#}
+
+
+        <div class="card" style="background: ghostwhite;">
+
+  <h2 class="card-header text-center py-3" style="color:white;background:black;font-family:'Lucida Handwriting';font-size: 35px;">
+    <strong>Edit Profile</strong>
+  </h2>
+
+
+    <div class="card-body px-lg-5 pt-0">
+
+    <!-- Form -->
+    <form class="text-center" style="color: #757575;" action="" method="POST" novalidate enctype="multipart/form-data"> {% csrf_token %}
+
+
+    {% crispy form %}
+    </form>
+    <!-- Form -->
+
+  </div>
+
+</div>
+
+    <a href="{% url 'password_change' %}">Change Password</a>
+    </div>
+    </div>
+{% endblock %}

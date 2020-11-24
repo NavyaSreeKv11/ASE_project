@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load mytags %}
+<html>
+<head>
+    <title>Freestock</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="{% static 'category/scripts/script.popup.js' %}"></script>
+    <script src="{% static 'category/scripts/script.popup.js' %}"></script>
+    <link href="{% static 'category/css/layout.css' %}"  rel="stylesheet" type="text/css" media="all">
+    <link href="{% static 'category/css/layouteffects.css' %}"  rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'category/css/new01.css' %}">
+    <link rel="shortcut icon" href="{% static 'category/images/favicon.ico' %}" />
+
+</head>
+
+<body id="top">
+
+<div class="bgded overlay" style="background-color:#546e7a;">
+    <div class="wrapper row0">
+        <div id="topbar" class="hoc clear">
+
+            <div class="fl_right">
+                <ul class="nospace">
+                    <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper row1">
+        <header id="header" class="hoc clear">
+            <div id="logo" class="fl_left">
+                <h1><a href="{% url 'index' %}">Freestock</a></h1>
+            </div>
+
+
+            <form class="example rounded" action="{% url "searchdata" %}" style="margin-left:275px;margin-top:20px;max-width:400px">
+                <input type="text" placeholder="Search.." name="searchword" required>
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+            </div>
+
+
+
+            <nav id="mainav" class="fl_right">
+                <ul class="clear">
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li class="active"><a class="drop" href="#">Categories</a>
+                        <ul>
+                            <li><a href="#">Animal</a></li>
+                            <li><a href="#">Fashion</a></li>
+                            <li><a href="#">Nature</a></li>
+                            <li><a href="#">Sports</a></li>
+                            <li><a href="{% url 'myapp:category' %}">+More</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+        </header>
+    </div>
+</div>
+<div class="wrapper row2">
+    <div id="breadcrumb" class="hoc clear">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="{% url 'myapp:category' %}">Categories</a></li>
+            <li><a href="#">Search</a></li>
+        </ul>
+    </div>
+</div>
+<div class="wrapper row3">
+<main class="hoc container clear">
+<div class="content">
+
+    <header class="heading">Gallery</header>
+<!-- ===================================Photo Grids ============================ -->
+<div class="container mt-5" style="text-align: center">
+
+        <div class="row">
+            {% for item in items %}
+
+                    <div class="col-md-3 mt-5">
+                        <img src="{{ item.image.url }}" class="image" id="id{{ forloop.counter }}"
+                             onclick="popup('myModal', 'id{{ forloop.counter }}', 'img01', 'download_img', '{{ item.image.url }}')">
+                    </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <div id="myModal" class="container modal" style="width: 100%; height: 100%;">
+
+        <div class="row">
+            <div class="col-md-8">
+                <img class="modal-content" id="img01">
+            </div>
+
+            <span class="close">&times</span>
+            <div class="col-sm-4">
+                <a id="download_img" download>
+                    <button class="btn btn-success">Free Download</button>
+                </a>
+            </div>
+            <div class=".col-xs-6 .col-sm-4 .col-lg-2">
+            <div class="follow" style="color:white">Follow us:</div>
+         <ul class="faico clear">
+                <li><a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                <li><a class="faicon-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+            </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+
+<!-- ========================================================================= -->
+<div class="container">
+<div class="row">
+
+        <nav class=" pagination">
+            <ul style="text-align: center">
+                <li><a href="#">&laquo; Previous</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><strong>&hellip;</strong></li>
+                <li><a href="#">6</a></li>
+                <li class="current"><strong>7</strong></li>
+                <li><a href="#">8</a></li>
+                <li><a href="#">9</a></li>
+                <li><strong>&hellip;</strong></li>
+                <li><a href="#">14</a></li>
+                <li><a href="#">15</a></li>
+                <li><a href="#">Next &raquo;</a></li>
+            </ul>
+        </nav>
+</div>
+</div>
+ </div>
+<div class="clear"></div>
+</main>
+</div>
+<div class="wrapper row4 bgded overlay mt-4" style="background-color:#546e7a;">
+    <footer id="footer" class="hoc clear">
+        <div class="one_third first">
+            <h6 class="title">CONTACT</h6>
+            <ul class="faico clear">
+                <li><a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                <li><a class="faicon-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+            </ul>
+        </div>
+        <div class="one_third">
+            <h6 class="title"></h6>
+            <ul class="nospace linklist contact">
+            </ul>
+        </div>
+        <div class="one_third">
+            <h6 class="title">Freestock.com</h6>
+            <ul class="nospace linklist">
+                <li>
+                    <article>
+                        <h2 class="nospace font-x1"><a href="#">About</a></h2>
+                        <p class="nospace">FreeStock.com is a website where a user can download free stock photos </p>
+                    </article>
+                </li>
+            </ul>
+        </div>
+
+    </footer>
+</div>
+<div class="wrapper row5">
+    <div id="copyright" class="hoc clear">
+
+        <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">freestock.com</a></p>
+    </div>
+</div>
+<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+
+<!-- ========================================================== -->
+
+<!-- ========================================================== -->
+
+<script src="{% static 'category/scripts/jquery.min.js' %}"></script>
+<script src="{% static 'category/scripts/jquery.backtotop.js' %}"></script>
+<script src="{% static 'category/scripts/jquery.mobilemenu.js' %}"></script>
+
+
+</body>
+</html>
